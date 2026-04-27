@@ -46,8 +46,8 @@ function MailboxDetails() {
       {!isLoading && !error && mailbox && (
         <div>
           <p>Box #{mailbox._id}</p>
-          <p>Owner: {mailbox.boxOwner}</p>
-          <p>Size: {mailbox.boxSize}</p>
+          <p>Owner: {mailbox.owner}</p>
+          <p>Size: {mailbox.size}</p>
         </div>
       )}
     </section>

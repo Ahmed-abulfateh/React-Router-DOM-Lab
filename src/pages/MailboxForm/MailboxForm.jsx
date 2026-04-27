@@ -6,8 +6,8 @@ import { createMailbox } from '../../services/mailboxService.js'
 // MailboxForm: Allows users to enter details for and submit new mailboxes.
 function MailboxForm() {
   const [formData, setFormData] = useState({
-    boxOwner: '',
-    boxSize: 'Small',
+    owner: '',
+    size: 'Small',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -28,7 +28,7 @@ function MailboxForm() {
 
     createMailbox(formData)
       .then((createdMailbox) => {
-        setFormData({ boxOwner: '', boxSize: 'Small' })
+        setFormData({ owner: '', size: 'Small' })
         navigate(`/mailboxes/${createdMailbox._id}`)
       })
       .catch((submitError) => {
@@ -43,21 +43,21 @@ function MailboxForm() {
     <section>
       <h2>New Mailbox</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="boxOwner">Box Owner</label>
+        <label htmlFor="owner">Owner</label>
         <input
-          id="boxOwner"
-          name="boxOwner"
+          id="owner"
+          name="owner"
           type="text"
-          value={formData.boxOwner}
+          value={formData.owner}
           onChange={handleChange}
           required
         />
 
-        <label htmlFor="boxSize">Box Size</label>
+        <label htmlFor="size">Size</label>
         <select
-          id="boxSize"
-          name="boxSize"
-          value={formData.boxSize}
+          id="size"
+          name="size"
+          value={formData.size}
           onChange={handleChange}
         >
           <option value="Small">Small</option>

@@ -1,5 +1,6 @@
 import { Spin } from 'antd'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { getMailboxes } from '../../services/mailboxService.js'
 
 // MailboxList: Displays an index list of all mailboxes.
@@ -47,7 +48,10 @@ function MailboxList() {
         <ul>
           {mailboxes.map((mailbox) => (
             <li key={mailbox._id}>
-              Box #{mailbox._id} - {mailbox.boxOwner} ({mailbox.boxSize})
+              <Link to={`/mailboxes/${mailbox._id}`}>
+                Mailbox {mailbox._id}
+              </Link>{' '}
+              - {mailbox.owner} ({mailbox.size})
             </li>
           ))}
         </ul>
